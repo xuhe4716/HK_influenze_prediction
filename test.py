@@ -1,3 +1,5 @@
+import warnings
+warnings.filterwarnings('ignore')
 import argparse
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_percentage_error, mean_absolute_error, mean_squared_error, r2_score
@@ -8,25 +10,24 @@ from rolling import nn_seq_mo
 
 
 device = torch.device("mps" if torch.backends.mps.is_available() else "cpu") #选择驱动方式
-
+batch_size = 36
 
 def main():
     #解析命令行参数和选项的标准模块
     parser = argparse.ArgumentParser() #创建一个解析对象
 
-    parser.add_argument('--predict_index', type=str, default='pos_index', help='predict feature name')
-    parser.add_argument('--epochs', type=int, default=30, help='epoch')
+    parser.add_argument('--model_path', type=str, default='save_model/5_model.pt', help='predict feature name')
+    parser.add_argument('--predict_index', type=str, default='RSV', help='predict feature name')
+    parser.add_argument('--epochs', type=int, default=35, help='epoch')
     parser.add_argument('--input_size', type=int, default=12, help='input dimension')
     parser.add_argument('--seq_len', type=int, default=6, help='seq len')
     parser.add_argument('--output_size', type=int, default=1, help='output dimension')
-    parser.add_argument('--model', type=str, default="Seq2Seq", help='LSTM direction')
-
     args = parser.parse_args() # Parsing model parameters
 
-    _, _, Dte, m, n =nn_seq_mo(seq_len=args.seq_len, B=None, num=args.output_size,
-                               predict_index = args.predict_index,removed_factors = ['RSV','paraflu12', 'paraflu34'])
+    _, _, Dte, m, n =nn_seq_mo(seq_len=args.seq_len, B=batch_size, num=args.output_size,
+                               predict_index = args.predict_index,removed_factors = ["pos_index",'paraflu12','paraflu34'])
 
-    mo_test(Dte, m, n)
+    mo_test(args.model_path,Dte, m, n)
 
     return args
 
@@ -45,8 +46,8 @@ def plot(y, pred,num_row):
     plt.title('multiple_outputs')
     plt.show()
 
-def mo_test(Dte, m, n):
-    model = torch.load('save.pt')
+def mo_test(model_path, Dte, m, n):
+    model = torch.load(model_path)
     #print(model)
     #model.load_state_dict(torch.load(path)['models'])
 
@@ -64,6 +65,8 @@ def mo_test(Dte, m, n):
     for tensor in pred:
         tensor[:] = (m - n) * tensor + n
 
+    #y = y[:-1]
+    #pred = pred[1:]
     num_row_y = len(y)
 
     MSE_l = mean_squared_error(y, pred, multioutput='uniform_average')

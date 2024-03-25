@@ -3,6 +3,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import MinMaxScaler
 import numpy as np
+import math
 
 class MyDataset(Dataset):
     def __init__(self, data):
@@ -31,6 +32,7 @@ def split_time_series(train_valid, year_windwos = 6):
         # 定义训练集和验证集的结束点
         start_val = end_train + pd.DateOffset(weeks = 1)
         end_val = start_val + pd.DateOffset(weeks=52)
+        #start_train = start_train + pd.DateOffset(weeks=52)
 
         # 切分数据
         train = train_valid.loc[start_train:end_train]
@@ -72,14 +74,14 @@ def nn_seq_mo(seq_len, B, num,predict_index,removed_factors = None):
     split_date = min_date + pd.DateOffset(weeks=52 * 12)
     train_valid = data[data.index <= split_date]
     test = data[data.index > split_date]
-    #train_valid_ground_truth = train_valid.loc[,:0].deepcopy()
     test_ground_truth = test.iloc[:,[0]]
 
     m, n = np.max(train_valid[train_valid.columns[0]]), np.min(train_valid[train_valid.columns[0]])
 
-    #_,_,tra_gt,val_gt = split_time_series(train_valid)
+
     # Min-Max Scaler
     columns = train_valid.columns
+
     scaler = MinMaxScaler()
     train_valid[columns] = scaler.fit_transform(train_valid[columns])
     test[columns] = scaler.transform(test[columns])

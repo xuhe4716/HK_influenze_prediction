@@ -2,33 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6b7348e-af80-4cbf-832d-a1a8019ebc4a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/result/Adenovirus/granger_causality_Adenovirus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/result/RSV/granger_causality_RSV.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/result/paraflu12/granger_causality_paraflu12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/result/paraflu34/granger_causality_paraflu34.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/result/pos_index/granger_causality_pos_index.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/save.pt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/EDA.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/EDA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/Adenovirus/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/Adenovirus/acf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/Adenovirus/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/Adenovirus/pacf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/Adenovirus/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/Adenovirus/trend.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/RSV/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/RSV/acf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/RSV/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/RSV/pacf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/RSV/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/RSV/trend.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/correlation_matrix.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/correlation_matrix.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/paraflu12/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu12/acf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/paraflu12/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu12/pacf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/paraflu12/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu12/trend.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/paraflu34/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu34/acf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/paraflu34/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu34/pacf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/paraflu34/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu34/trend.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/pos_index/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/pos_index/acf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/pos_index/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/pos_index/pacf_lag52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/result/pos_index/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/pos_index/trend.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mtl.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/mtl.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/save_model/0_model.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/save_model/1_model.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/save_model/2_model.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/save_model/3_model.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/save_model/4_model.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/save_model/5_model.pt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/GRU.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/GRU.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rolling.py" beforeDir="false" afterPath="$PROJECT_DIR$/rolling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711277243415</updated>
-      <workItem from="1711277244972" duration="14344000" />
+      <workItem from="1711277244972" duration="38505000" />
     </task>
     <servers />
   </component>
@@ -110,6 +96,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HK_influenze_prediction$EDA.coverage" NAME="EDA Coverage Results" MODIFIED="1711341126663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/HK_influenze_prediction$EDA.coverage" NAME="EDA Coverage Results" MODIFIED="1711352868726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
   </component>
 </project>
