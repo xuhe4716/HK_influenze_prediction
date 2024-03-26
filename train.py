@@ -60,18 +60,18 @@ def main():
     #解析命令行参数和选项的标准模块
     parser = argparse.ArgumentParser() #创建一个解析对象
 
-    parser.add_argument('--predict_index', type=str, default='RSV', help='predict feature name')
+    parser.add_argument('--predict_index', type=str, default='RSV', help='predict feature name') # 预测RSV时把这里的pos_index替换成RSV
     parser.add_argument('--epochs', type=int, default=40, help='epoch')
-    parser.add_argument('--input_size', type=int, default=12, help='input dimension')
-    parser.add_argument('--seq_len', type=int, default=6, help='seq len')
-    parser.add_argument('--output_size', type=int, default=1, help='output dimension')
-    parser.add_argument('--model', type=str, default="Seq2Seq", help='LSTM direction')
+    parser.add_argument('--input_size', type=int, default=12, help='input dimension') # 特征数量 11个特征加自己本身的上一个时刻的ground truth
+    parser.add_argument('--seq_len', type=int, default=6, help='seq len') # 使用t - 5 - t时刻的数据
+    parser.add_argument('--output_size', type=int, default=4, help='output dimension') # 默认输出t+1 - t+4的数据
+    parser.add_argument('--model', type=str, default="LSTM", help='LSTM direction') # 换成Baseline可以看基模型
 
     args = parser.parse_args()
     #seed_everything()
     #args = main() # Parsing model parameters
     Dtr, Val, Dte, m, n =nn_seq_mo(seq_len=args.seq_len, B=batch_size, num=args.output_size,
-                                   predict_index = args.predict_index,removed_factors = ["pos_index",'paraflu12','paraflu34'])
+                                   predict_index = args.predict_index,removed_factors = ["pos_index",'paraflu12','paraflu34']) #预测RSV时把这里的RSV 替换成pos_index
 
     if args.model == "BiLSTM":
         model = BiLSTM(args.input_size, hidden_size, num_layers, args.output_size, batch_size=batch_size,device=device).to(device)
