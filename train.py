@@ -64,13 +64,18 @@ def main():
     parser.add_argument('--epochs', type=int, default=40, help='epoch')
     parser.add_argument('--input_size', type=int, default=12, help='input dimension') # 特征数量 11个特征加自己本身的上一个时刻的ground truth
     parser.add_argument('--seq_len', type=int, default=6, help='seq len') # 使用t - 5 - t时刻的数据
-    parser.add_argument('--output_size', type=int, default=4, help='output dimension') # 默认输出t+1 - t+4的数据
-    parser.add_argument('--model', type=str, default="LSTM", help='LSTM direction') # 换成Baseline可以看基模型
+    parser.add_argument('--output_size', type=int, default=1, help='output dimension') # 默认输出t+1 - t+4的数据
+    parser.add_argument('--predicted_size', type=int, default=1, help='predicted dimension') # only for seq2seq
+    parser.add_argument('--model', type=str, default="GRU", help='model') # 换成Baseline可以看基模型
 
     args = parser.parse_args()
     #seed_everything()
     #args = main() # Parsing model parameters
-    Dtr, Val, Dte, m, n =nn_seq_mo(seq_len=args.seq_len, B=batch_size, num=args.output_size,
+    if args.model == "Seq2Seq":
+        Dtr, Val, Dte, m, n =nn_seq_mo(seq_len=args.seq_len, B=batch_size, num=args.predicted_size,
+                                       predict_index = args.predict_index,removed_factors = ["pos_index",'paraflu12','paraflu34']) #预测RSV时把这里的RSV 替换成pos_index
+    else:
+        Dtr, Val, Dte, m, n =nn_seq_mo(seq_len=args.seq_len, B=batch_size, num=args.output_size,
                                    predict_index = args.predict_index,removed_factors = ["pos_index",'paraflu12','paraflu34']) #预测RSV时把这里的RSV 替换成pos_index
 
     if args.model == "BiLSTM":
@@ -78,7 +83,7 @@ def main():
     elif args.model == 'LSTM':
         model = LSTM(args.input_size, hidden_size, num_layers, args.output_size, batch_size=batch_size,device=device).to(device)
     elif args.model == 'Seq2Seq':
-        model = Seq2Seq(args.input_size, hidden_size, num_layers, args.output_size, batch_size=batch_size,device=device).to(device)
+        model = Seq2Seq(args.input_size, hidden_size, num_layers, args.output_size, batch_size=batch_size,pred_size = args.predicted_size,device=device).to(device)
     elif args.model == 'GRU':
         model = GRU(args.input_size, hidden_size, num_layers, args.output_size, batch_size=batch_size,device=device).to(device)
     elif args.model == "Baseline":

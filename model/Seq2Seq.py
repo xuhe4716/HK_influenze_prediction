@@ -45,20 +45,35 @@ class Decoder(nn.Module):
         return pred, h, c
 
 class Seq2Seq(nn.Module):
-    def __init__(self, input_size, hidden_size, num_layers, output_size, batch_size,device):
+    def __init__(self, input_size, hidden_size, num_layers, output_size, batch_size,pred_size,device):
         super().__init__()
         self.device = device
         self.output_size = output_size
+        self.pred_size = pred_size
         self.Encoder = Encoder(input_size, hidden_size, num_layers, batch_size,self.device)
         self.Decoder = Decoder(input_size, hidden_size, num_layers, output_size, batch_size,self.device)
 
     def forward(self, input_seq):
         batch_size, seq_len, _ = input_seq.shape[0], input_seq.shape[1], input_seq.shape[2]
         h, c = self.Encoder(input_seq)
-        outputs = torch.zeros(batch_size, seq_len, self.output_size).to(self.device)
-        for t in range(seq_len):
-            _input = input_seq[:, t, :]
-            output, h, c = self.Decoder(_input, h, c)
-            outputs[:, t, :] = output
+        outputs = torch.zeros(batch_size, seq_len, self.pred_size).to(self.device)
+        if self.pred_size > 1:
+            for t in range(self.pred_size):
+                if t == 0:
+                    _input = input_seq[:, t, :]
+                else:
+                    output = output.view(batch_size,1)
+                    _input = torch.cat((_input,output),dim = 1)
+                    _input = _input[:,1:]
 
-        return outputs[:, -1, :]
+                output, h, c = self.Decoder(_input, h, c)
+                outputs[:, :, t] = output
+
+            return outputs[:, -1, :].squeeze(dim = 1)
+        else:
+            for t in range(seq_len):
+                _input = input_seq[:, t, :]
+                output, h, c = self.Decoder(_input, h, c)
+                outputs[:, t, :] = output
+
+            return outputs[:, -1, :]

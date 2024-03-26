@@ -125,7 +125,7 @@ def main():
     df = pd.read_csv('data_pp.csv')
     df['date']= pd.to_datetime(df['date'])
     df = df.set_index(df['date'])
-    start = pd.to_datetime('2015-01-04')
+    start = pd.to_datetime('2004-07-04')
     df = df[start:]
     for virus in virus_ls:
         predict_index = virus

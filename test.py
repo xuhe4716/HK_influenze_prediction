@@ -22,7 +22,7 @@ def main():
     #parser.add_argument('--epochs', type=int, default=35, help='epoch')
     parser.add_argument('--input_size', type=int, default=12, help='input dimension')
     parser.add_argument('--seq_len', type=int, default=6, help='seq len')
-    parser.add_argument('--output_size', type=int, default=4, help='output dimension')
+    parser.add_argument('--output_size', type=int, default=1, help='output dimension')
     args = parser.parse_args() # Parsing model parameters
 
     _, _, Dte, m, n =nn_seq_mo(seq_len=args.seq_len, B=batch_size, num=args.output_size,

@@ -2,8 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6b7348e-af80-4cbf-832d-a1a8019ebc4a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/rolling_org.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_result.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pos_index.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rsv.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/EDA.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/EDA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/Adenovirus/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/Adenovirus/acf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/Adenovirus/granger_causality_Adenovirus.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/Adenovirus/granger_causality_Adenovirus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/Adenovirus/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/Adenovirus/pacf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/Adenovirus/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/Adenovirus/trend.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/RSV/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/RSV/acf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/RSV/granger_causality_RSV.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/RSV/granger_causality_RSV.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/RSV/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/RSV/pacf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/RSV/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/RSV/trend.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/correlation_matrix.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/correlation_matrix.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/paraflu12/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu12/acf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/paraflu12/granger_causality_paraflu12.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu12/granger_causality_paraflu12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/paraflu12/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu12/pacf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/paraflu12/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu12/trend.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/paraflu34/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu34/acf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/paraflu34/granger_causality_paraflu34.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu34/granger_causality_paraflu34.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/paraflu34/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu34/pacf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/paraflu34/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/paraflu34/trend.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/pos_index/acf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/pos_index/acf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/pos_index/granger_causality_pos_index.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/pos_index/granger_causality_pos_index.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/pos_index/pacf_lag52.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/pos_index/pacf_lag52.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/result/pos_index/trend.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/result/pos_index/trend.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Seq2Seq.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Seq2Seq.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rolling.py" beforeDir="false" afterPath="$PROJECT_DIR$/rolling.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save_model/5_model.pt" beforeDir="false" afterPath="$PROJECT_DIR$/save_model/5_model.pt" afterDir="false" />
@@ -18,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -55,7 +80,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.EDA">
     <configuration name="EDA" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HK_influenze_prediction" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -78,9 +103,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="plot_result" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="HK_influenze_prediction" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot_result.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.EDA" />
+        <item itemvalue="Python.plot_result" />
       </list>
     </recent_temporary>
   </component>
@@ -92,7 +140,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711277243415</updated>
-      <workItem from="1711277244972" duration="49637000" />
+      <workItem from="1711277244972" duration="56157000" />
     </task>
     <servers />
   </component>
@@ -103,6 +151,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HK_influenze_prediction$EDA.coverage" NAME="EDA Coverage Results" MODIFIED="1711352868726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/HK_influenze_prediction$plot_result.coverage" NAME="plot_result Coverage Results" MODIFIED="1711433710196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HK_influenze_prediction$EDA.coverage" NAME="EDA Coverage Results" MODIFIED="1711434481886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
   </component>
 </project>

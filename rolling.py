@@ -137,3 +137,73 @@ def nn_seq_mo(seq_len, B, num,predict_index,removed_factors = None):
 
     return Dtr, Val, Dte, m, n
 
+def nn_seq_mo_s2s(seq_len, B, num,predict_index,removed_factors = None):
+    print(predict_index)
+    data = csv_reader("data/data_pp.csv",predict_index,removed_factors)
+
+    min_date = data.index.min()
+    split_date = min_date + pd.DateOffset(weeks=52 * 12)
+    train_valid = data[data.index <= split_date]
+    test = data[data.index > split_date]
+    test_ground_truth = test.iloc[:,[0]]
+
+    m, n = np.max(train_valid[train_valid.columns[0]]), np.min(train_valid[train_valid.columns[0]])
+
+
+    # Min-Max Scaler
+    columns = train_valid.columns
+
+    scaler = MinMaxScaler()
+    train_valid[columns] = scaler.fit_transform(train_valid[columns])
+    test[columns] = scaler.transform(test[columns])
+
+    train,val,tra_gt,val_gt = split_time_series(train_valid)
+
+    def rolling_data(dataset, batch_size, shuffle,seq_len, num, ground_truth,test = False):
+        load = dataset[dataset.columns[0]]
+        feature_num = len(dataset.columns)
+        load = load.tolist()
+        ground_truth = ground_truth.values.tolist()
+        dataset = dataset.values.tolist()
+
+        seq = []
+        for i in range(0, len(dataset) - seq_len - num + 1):
+            train_seq = []
+            train_label = []
+
+            for j in range(i, i + seq_len):
+                x = [load[j]]
+                for c in range(1, feature_num):
+                    #if c <= 2:
+                    #    x.append(dataset[j][c])
+                    #else:
+                    x.append(dataset[j+1][c])
+                train_seq.append(x)
+
+            for j in range(i + seq_len, i + seq_len + num):
+                train_label.append(ground_truth[j])
+
+            train_seq = torch.FloatTensor(train_seq)
+            train_label = torch.FloatTensor(train_label).view(-1)
+            seq.append((train_seq, train_label))
+        seq = MyDataset(seq)
+        if test is False:
+            seq = DataLoader(dataset=seq, batch_size=batch_size, shuffle=shuffle, num_workers=0, drop_last=True)
+        else:
+            seq = DataLoader(dataset=seq, shuffle=shuffle, num_workers=0, drop_last=True)
+        return seq
+
+    Dtr = []
+    Val = []
+
+    for i in range(len(train)):
+        tr_seq = rolling_data(train[i], B, False,seq_len, num,tra_gt[i])
+        Dtr.append(tr_seq)
+
+    for j in range(len(val)):
+        val_seq = rolling_data(val[j], B, False,seq_len, num,val_gt[j],test = True)
+        Val.append(val_seq)
+
+    Dte = rolling_data(test, B, False,seq_len, num,test_ground_truth,test = True)
+
+    return Dtr, Val, Dte, m, n
