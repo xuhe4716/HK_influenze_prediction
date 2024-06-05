@@ -1,3 +1,8 @@
+"""
+Epidemic Period - other models
+Author: He
+"""
+
 import pandas as pd
 from EpidemicPeriod import EpidemicPeriod
 import os

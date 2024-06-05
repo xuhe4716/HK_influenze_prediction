@@ -1,3 +1,9 @@
+"""
+Epidemic Period - Ground truth
+Author: He
+"""
+
+
 import pandas as pd
 import numpy as np
 np.set_printoptions(suppress = True)
