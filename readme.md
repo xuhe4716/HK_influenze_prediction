@@ -49,6 +49,7 @@ You can run the `bash run.sh` command to rerun the models and get all the result
 ```angular2html
 pip install pandas==2.2.1
 pip install matplotlib==3.8.4
+pip install seaborn==0.11.0
 ```
 
 ### 3.2 Data
