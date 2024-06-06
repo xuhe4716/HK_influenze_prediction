@@ -48,6 +48,7 @@ You can run the `bash run.sh` command to rerun the models and get all the result
 ### 3.1 Required package
 ```angular2html
 conda deactivate
+conda create --name py385 python=3.8.5
 pip install pandas==2.2.1
 pip install matplotlib==3.8.4
 pip install seaborn==0.11.0
